@@ -160,7 +160,7 @@ function animate() {
     c.fillStyle = 'rgba(0, 0, 0, 0.1)'
     c.fillRect(0, 0, canvas.width, canvas.height)
     player.draw()
-    particles.forEach((particle) => {
+    particles.forEach((particle,index) => {
         if (particle.alpha <= 0) {
             particles.splice(index, 1)
         } else {
@@ -204,14 +204,14 @@ function animate() {
 
                 // create explosions
                 for (let i = 0; i < enemy.radius * 2; i++) {
-                    projectiles.push(
+                    particles.push(
                         new Particle(
                             projectile.x,
                             projectile.y,
                             Math.random() * 2,
                             enemy.color, {
-                            x: (Math.random() - 0.5) * (Math.random() * 8),
-                            y: (Math.random() - 0.5) * (Math.random() * 8)
+                            x: (Math.random() - 0.5) * (Math.random() * 6),
+                            y: (Math.random() - 0.5) * (Math.random() * 6)
                         }))
                 }
                 if (enemy.radius - 10 > 5) {
